@@ -6,12 +6,21 @@ function App() {
     const [value, setValue] = useState(0)
 
     useEffect(()=>{
-        localStorage.setItem('counterValue',JSON.stringify(value))},
-        [value])
-
+        let valueAsString=localStorage.getItem('counterValue')
+        if(valueAsString) {
+            let newValue = JSON.parse(valueAsString)
+            setValue(newValue)
+        }
+    },[])
     const incHandler = () => {
         setValue(value+1)
     }
+
+    useEffect(()=>{
+        localStorage.setItem('counterValue',JSON.stringify(value))},
+        [value])
+
+
 
     const setToLocalStorageHandler=()=>{
         localStorage.setItem('counterValue',JSON.stringify(value))
