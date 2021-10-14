@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 function App() {
 
     const [value, setValue] = useState(0)
+
+    useEffect(()=>{
+        localStorage.setItem('counterValue',JSON.stringify(value))},
+        [value])
 
     const incHandler = () => {
         setValue(value+1)
@@ -11,7 +15,6 @@ function App() {
 
     const setToLocalStorageHandler=()=>{
         localStorage.setItem('counterValue',JSON.stringify(value))
-        localStorage.setItem('counterValue+1',JSON.stringify(value+1))
     }
     const getFromLocalStorageHandler=()=>{
     let valueAsString=localStorage.getItem('counterValue')
@@ -25,7 +28,7 @@ function App() {
         setValue(0)
     }
 const removeItemFromLocalStorageHandler=()=>{
-        localStorage.removeItem('counterValue+1')
+        localStorage.removeItem('counterValue')
 }
     return (
         <div className="App">
