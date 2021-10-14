@@ -43,10 +43,7 @@ const removeItemFromLocalStorageHandler=()=>{
         <div className="App">
             <h1>{value}</h1>
             <button onClick={incHandler}>inc</button>
-            <button onClick={setToLocalStorageHandler}>setToLocalStorage</button>
-            <button onClick={getFromLocalStorageHandler}>getFromLocalStorage</button>
-            <button onClick={clearLocalStorageHandler}>clearLocalStorage</button>
-            <button onClick={removeItemFromLocalStorageHandler}>removeItemFromLocalStorage</button>
+
         </div>
     );
 }
