@@ -1,5 +1,5 @@
-import {Dispatch} from "redux";
-import {AppStateType} from "./store";
+// import {Dispatch} from "redux";
+// import {AppStateType} from "./store";
 
 const initialState = {
     value: 0
@@ -31,18 +31,18 @@ export type SetValueFromLocalStorageActionType = ReturnType<typeof setValueFromL
 
 
 //THUNK
-export const incValueTC = () => (dispatch: Dispatch,getState:()=>AppStateType) => {
-    let currentValue=getState().counter.value
-    localStorage.setItem('counterValue', JSON.stringify(currentValue+1))
-    dispatch(incValueAC())
-}
-
-export const setValueFromLocalStorageTC = () => (dispatch: Dispatch) => {
-    let valueAsString=localStorage.getItem('counterValue')
-    if(valueAsString) {
-        let newValue = JSON.parse(valueAsString)
-        dispatch(setValueFromLocalStorageAC(newValue))
-    }
-}
+// export const incValueTC = () => (dispatch: Dispatch,getState:()=>AppStateType) => {
+//     let currentValue=getState().counter.value
+//     localStorage.setItem('counterValue', JSON.stringify(currentValue+1))
+//     dispatch(incValueAC())
+// }
+//
+// export const setValueFromLocalStorageTC = () => (dispatch: Dispatch) => {
+//     let valueAsString=localStorage.getItem('counterValue')
+//     if(valueAsString) {
+//         let newValue = JSON.parse(valueAsString)
+//         dispatch(setValueFromLocalStorageAC(newValue))
+//     }
+// }
 
 export type ActionType = IncValueActionType | SetValueFromLocalStorageActionType

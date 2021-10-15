@@ -2,12 +2,25 @@ import {applyMiddleware, combineReducers, createStore} from "redux";
 import {counterReducer} from "./counter-reducer";
 import thunk from "redux-thunk";
 
-const rootReducer=combineReducers({
-    counter:counterReducer
+const rootReducer = combineReducers({
+    counter: counterReducer
 })
 
-export const store=createStore(rootReducer,applyMiddleware(thunk))
+let preloadedState;
+const valueAsString = localStorage.getItem('app-state')
+if (valueAsString) {
+    preloadedState = JSON.parse(valueAsString)
+}
 
-// type AppStoreType=typeof store
+export const store = createStore(rootReducer, preloadedState,applyMiddleware(thunk))
 
-export type AppStateType=ReturnType<typeof rootReducer>
+store.subscribe(() => {
+    localStorage.setItem('app-state', JSON.stringify(store.getState()))
+    localStorage.setItem('counterValue', JSON.stringify(store.getState().counter.value))
+})
+
+// type AppStoreType = typeof store
+export type AppStateType = ReturnType<typeof rootReducer>
+
+
+
