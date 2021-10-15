@@ -8,3 +8,5 @@ export const counterReducer=(state:InitialStateType=initialState,action:any):Ini
     return state
 }
 
+export const incValueAC=()=>({type:'INC-VALUE'}as const)
+export type IncValuesActionType=ReturnType<typeof incValueAC>
