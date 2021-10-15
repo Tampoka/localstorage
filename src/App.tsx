@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "./BLL/store";
-import {incValuesTC} from "./BLL/counter-reducer";
+import {incValueTC} from "./BLL/counter-reducer";
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
 
     const dispatch=useDispatch()
     const incHandler = () => {
-        dispatch(incValuesTC(value))
+        dispatch(incValueTC())
         // setValue(value+1)
     }
 
