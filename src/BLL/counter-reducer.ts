@@ -4,7 +4,7 @@ const initialState={
 
 type InitialStateType=typeof initialState
 
-export const counterReducer=(state:InitialStateType=initialState,action:IncValuesActionType):InitialStateType=>{
+export const counterReducer=(state:InitialStateType=initialState,action:IncValueActionType):InitialStateType=>{
     switch (action.type) {
         case "INC-VALUE":
             return {
@@ -16,4 +16,7 @@ export const counterReducer=(state:InitialStateType=initialState,action:IncValue
 }
 
 export const incValueAC=()=>({type:'INC-VALUE'}as const)
-export type IncValuesActionType=ReturnType<typeof incValueAC>
+export type IncValueActionType =ReturnType<typeof incValueAC>
+
+export const setValueFromLocalStorageAC=()=>({type:'SET-VALUE-LOCAL-STORAGE'}as const)
+export type SetValueFromLocalStorageActionType=ReturnType<typeof setValueFromLocalStorageAC>
