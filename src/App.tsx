@@ -1,9 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
+import {useSelector} from "react-redux";
+import {AppStateType} from "./BLL/store";
 
 function App() {
 
-    const [value, setValue] = useState(0)
+    const value=useSelector<AppStateType,number>(state=>state.counter.value)
+
+    const incHandler = () => {
+        // setValue(value+1)
+    }
+
+   /* const [value, setValue] = useState(0)
 
     useEffect(()=>{
         let valueAsString=localStorage.getItem('counterValue')
@@ -12,9 +20,6 @@ function App() {
             setValue(newValue)
         }
     },[])
-    const incHandler = () => {
-        setValue(value+1)
-    }
 
     useEffect(()=>{
         localStorage.setItem('counterValue',JSON.stringify(value))},
@@ -38,7 +43,7 @@ function App() {
     }
 const removeItemFromLocalStorageHandler=()=>{
         localStorage.removeItem('counterValue')
-}
+}*/
     return (
         <div className="App">
             <h1>{value}</h1>
